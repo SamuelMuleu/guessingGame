@@ -19,6 +19,11 @@ function handleTryClick(event) {
     handleToggle();
     screen2.querySelector("h2").innerText = `você acertou em ${xAttemps} vezes`;
   }
+if(inputNumber.value <0 || inputNumber.value >10){
+alert("Apenas Números de 0 a 10!")
+}
+
+
   inputNumber.value = "";
   xAttemps++;
 }

@@ -1,15 +1,14 @@
-let randomNumber = Math.round(Math.random() * 10);
 const screen1 = document.querySelector(".screen1");
 const screen2 = document.querySelector(".screen2");
 const btnTry = document.querySelector("#btnTry");
 const btnReset = document.querySelector("#btnReset");
 let xAttemps = 1;
+let randomNumber = Math.round(Math.random() * 10);
 
-btnTry.addEventListener("click", handleTryClick);
+btnTry.addEventListener("click", "keydown", handleTryClick);
 btnReset.addEventListener("click", handleResetClick);
 
-document.addEventListener("keydown", keydownReset);
-
+document.addEventListener("keydown","keydown", keydownReset);
 
 function handleTryClick(event) {
   event.preventDefault();
@@ -20,17 +19,9 @@ function handleTryClick(event) {
     handleToggle();
     screen2.querySelector("h2").innerText = `você acertou em ${xAttemps} vezes`;
   }
-
-  if (inputNumber.value > 10) {
-    alert("Apenas números de 0 a 10!");
-  }
-  if (inputNumber.value < 0) {
-    alert("Apenas números de 0 a 10!");
-  }
   inputNumber.value = "";
   xAttemps++;
 }
-
 
 function handleResetClick() {
   handleToggle();
@@ -41,6 +32,7 @@ function handleResetClick() {
 function handleToggle() {
   screen1.classList.toggle("hide");
   screen2.classList.toggle("hide");
+  randomNumber = Math.round(Math.random() * 10);
 }
 
 function keydownReset(e) {

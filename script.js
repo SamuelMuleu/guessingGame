@@ -6,7 +6,6 @@ let xAttemps = 1;
 let randomNumber = Math.round(Math.random() * 10);
 
 btnTry.addEventListener("click", handleTryClick);
-
 btnTry.addEventListener("keydown", handleTryClick);
 btnReset.addEventListener("click", handleResetClick);
 

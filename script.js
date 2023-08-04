@@ -5,9 +5,13 @@ const btnReset = document.querySelector("#btnReset");
 let xAttemps = 1;
 let randomNumber = Math.round(Math.random() * 10);
 
-btnTry.addEventListener("click", handleTryClick);
 btnTry.addEventListener("keydown", handleTryClick);
-btnReset.addEventListener("click", handleResetClick);
+
+
+btnReset.addEventListener("click", handleResetClick)
+
+
+
 
 function handleTryClick(event) {
   event.preventDefault();
@@ -20,8 +24,8 @@ function handleTryClick(event) {
   }
   if (inputNumber.value < 0 || inputNumber.value > 10) {
     alert("Apenas Números de 0 a 10!");
-  }
-
+  } 
+  
   inputNumber.value = "";
   xAttemps++;
 }
@@ -35,4 +39,10 @@ function handleResetClick() {
 function handleToggle() {
   screen1.classList.toggle("hide");
   screen2.classList.toggle("hide");
+}
+
+function keydownReset(e) {
+  if (e.key == "Enter" && screen1.classList.contains("hide")) {
+    handleResetClick();
+  }
 }
